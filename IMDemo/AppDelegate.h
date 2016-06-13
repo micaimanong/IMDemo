@@ -7,10 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XMPP.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,XMPPStreamDelegate>{
+    XMPPStream *xmppStream ;
+    BOOL isOpen;
+    NSString *password;
+    
+}
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic ,strong)XMPPStream *xmppStream;
+
+
+-(BOOL)connect;
+-(void)disConnect;
+-(void)setupStream;
+-(void)goOnLine;
+-(void)goOffLine;
 
 
 @end

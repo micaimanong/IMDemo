@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		424A800F1D02D767005A7978 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 424A800E1D02D767005A7978 /* main.m */; };
 		424A80121D02D767005A7978 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 424A80111D02D767005A7978 /* AppDelegate.m */; };
-		424A80151D02D767005A7978 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 424A80141D02D767005A7978 /* ViewController.m */; };
 		424A80181D02D767005A7978 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 424A80161D02D767005A7978 /* Main.storyboard */; };
 		424A801A1D02D767005A7978 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 424A80191D02D767005A7978 /* Assets.xcassets */; };
 		424A801D1D02D767005A7978 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 424A801B1D02D767005A7978 /* LaunchScreen.storyboard */; };
 		424A80281D02D767005A7978 /* IMDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 424A80271D02D767005A7978 /* IMDemoTests.m */; };
 		424A80331D02D767005A7978 /* IMDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 424A80321D02D767005A7978 /* IMDemoUITests.m */; };
+		42DA4CDE1D066D3D0080D6A1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA4CDC1D066D3D0080D6A1 /* LoginViewController.m */; };
+		42DA4CE31D066E030080D6A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA4CE01D066E030080D6A1 /* MainViewController.m */; };
+		42DA4CE41D066E030080D6A1 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA4CE21D066E030080D6A1 /* RegisterViewController.m */; };
+		A247C63D85C987F6FF390980 /* libPods-IMDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC848C3DD9F39C1B36437C05 /* libPods-IMDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,12 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		374160B9105B325AD972153E /* Pods-IMDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-IMDemo/Pods-IMDemo.release.xcconfig"; sourceTree = "<group>"; };
 		424A800A1D02D767005A7978 /* IMDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		424A800E1D02D767005A7978 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		424A80101D02D767005A7978 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		424A80111D02D767005A7978 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		424A80131D02D767005A7978 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		424A80141D02D767005A7978 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		424A80171D02D767005A7978 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		424A80191D02D767005A7978 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		424A801C1D02D767005A7978 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +53,19 @@
 		424A802E1D02D767005A7978 /* IMDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IMDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		424A80321D02D767005A7978 /* IMDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMDemoUITests.m; sourceTree = "<group>"; };
 		424A80341D02D767005A7978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		424A80401D02DEC1005A7978 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		424A80421D02DED1005A7978 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		424A80441D02E16D005A7978 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = ../../../../../usr/lib/libxml2.2.dylib; sourceTree = "<group>"; };
+		424A80461D02E1A3005A7978 /* libresolv.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.9.dylib; path = ../../../../../usr/lib/libresolv.9.dylib; sourceTree = "<group>"; };
+		424A80481D02E285005A7978 /* libidn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libidn.a; path = Pods/XMPPFramework/Vendor/libidn/libidn.a; sourceTree = "<group>"; };
+		42DA4CDC1D066D3D0080D6A1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		42DA4CDD1D066D3D0080D6A1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		42DA4CDF1D066E030080D6A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		42DA4CE01D066E030080D6A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		42DA4CE11D066E030080D6A1 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		42DA4CE21D066E030080D6A1 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		CC7EF7DE53D975A5DD37E361 /* Pods-IMDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMDemo/Pods-IMDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		FC848C3DD9F39C1B36437C05 /* libPods-IMDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IMDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A247C63D85C987F6FF390980 /* libPods-IMDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +101,8 @@
 				424A80261D02D767005A7978 /* IMDemoTests */,
 				424A80311D02D767005A7978 /* IMDemoUITests */,
 				424A800B1D02D767005A7978 /* Products */,
+				80EBB59A5CB2C8D9E0A94763 /* Pods */,
+				9AA75E8118013CE3F67CD16F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,9 +121,13 @@
 			children = (
 				424A80101D02D767005A7978 /* AppDelegate.h */,
 				424A80111D02D767005A7978 /* AppDelegate.m */,
-				424A80131D02D767005A7978 /* ViewController.h */,
-				424A80141D02D767005A7978 /* ViewController.m */,
 				424A80161D02D767005A7978 /* Main.storyboard */,
+				42DA4CDD1D066D3D0080D6A1 /* LoginViewController.h */,
+				42DA4CDC1D066D3D0080D6A1 /* LoginViewController.m */,
+				42DA4CDF1D066E030080D6A1 /* MainViewController.h */,
+				42DA4CE01D066E030080D6A1 /* MainViewController.m */,
+				42DA4CE11D066E030080D6A1 /* RegisterViewController.h */,
+				42DA4CE21D066E030080D6A1 /* RegisterViewController.m */,
 				424A80191D02D767005A7978 /* Assets.xcassets */,
 				424A801B1D02D767005A7978 /* LaunchScreen.storyboard */,
 				424A801E1D02D767005A7978 /* Info.plist */,
@@ -140,6 +162,28 @@
 			path = IMDemoUITests;
 			sourceTree = "<group>";
 		};
+		80EBB59A5CB2C8D9E0A94763 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CC7EF7DE53D975A5DD37E361 /* Pods-IMDemo.debug.xcconfig */,
+				374160B9105B325AD972153E /* Pods-IMDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9AA75E8118013CE3F67CD16F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				424A80481D02E285005A7978 /* libidn.a */,
+				424A80461D02E1A3005A7978 /* libresolv.9.dylib */,
+				424A80441D02E16D005A7978 /* libxml2.2.dylib */,
+				424A80421D02DED1005A7978 /* Security.framework */,
+				424A80401D02DEC1005A7978 /* CFNetwork.framework */,
+				FC848C3DD9F39C1B36437C05 /* libPods-IMDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +191,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 424A80371D02D767005A7978 /* Build configuration list for PBXNativeTarget "IMDemo" */;
 			buildPhases = (
+				00C8446445ED22DDA3874E93 /* [CP] Check Pods Manifest.lock */,
 				424A80061D02D767005A7978 /* Sources */,
 				424A80071D02D767005A7978 /* Frameworks */,
 				424A80081D02D767005A7978 /* Resources */,
+				C00E357DA3F471F3ECB5FBFC /* [CP] Embed Pods Frameworks */,
+				2E1DFE10631A51D5DF2D9109 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -265,14 +312,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		00C8446445ED22DDA3874E93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2E1DFE10631A51D5DF2D9109 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IMDemo/Pods-IMDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C00E357DA3F471F3ECB5FBFC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IMDemo/Pods-IMDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		424A80061D02D767005A7978 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				424A80151D02D767005A7978 /* ViewController.m in Sources */,
+				42DA4CE41D066E030080D6A1 /* RegisterViewController.m in Sources */,
+				42DA4CDE1D066D3D0080D6A1 /* LoginViewController.m in Sources */,
 				424A80121D02D767005A7978 /* AppDelegate.m in Sources */,
 				424A800F1D02D767005A7978 /* main.m in Sources */,
+				42DA4CE31D066E030080D6A1 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,10 +508,15 @@
 		};
 		424A80381D02D767005A7978 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC7EF7DE53D975A5DD37E361 /* Pods-IMDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = IMDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/XMPPFramework/Vendor/libidn",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = micaimanong.IMDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -422,10 +524,15 @@
 		};
 		424A80391D02D767005A7978 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 374160B9105B325AD972153E /* Pods-IMDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = IMDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/XMPPFramework/Vendor/libidn",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = micaimanong.IMDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -496,6 +603,7 @@
 				424A80391D02D767005A7978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		424A803A1D02D767005A7978 /* Build configuration list for PBXNativeTarget "IMDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +612,7 @@
 				424A803C1D02D767005A7978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		424A803D1D02D767005A7978 /* Build configuration list for PBXNativeTarget "IMDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +621,7 @@
 				424A803F1D02D767005A7978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
