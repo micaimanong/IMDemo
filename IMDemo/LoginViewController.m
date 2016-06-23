@@ -20,7 +20,6 @@
     [super viewDidLoad];
     self.title = @"登录";
     self.view.backgroundColor = [UIColor whiteColor];
-    
     [self makeUI];
  
     
@@ -69,15 +68,11 @@
 -(void)buttonDown{
     
     AppDelegate *del = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    NSLog(@"[del connect] === %d",[del connect]);
-    if ([del connect]) {
+    [del connect];
         
-        MainViewController *mainView =[[MainViewController alloc] init];
-        [self.navigationController pushViewController:mainView animated:YES];
-    }else{
-    
-    
-    }
+//        MainViewController *mainView =[[MainViewController alloc] init];
+//        [self.navigationController pushViewController:mainView animated:YES];
+  
     
 }
 #pragma mark --------TextFileDelegate

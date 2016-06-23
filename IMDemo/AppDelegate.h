@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "XMPP.h"
+#import "XMPPReconnect.h"
+#import "XMPPStreamManagementMemoryStorage.h"
+#import "XMPPRosterMemoryStorage.h"
+#import "XMPPMessageArchivingCoreDataStorage.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,XMPPStreamDelegate>{
-    XMPPStream *xmppStream ;
     BOOL isOpen;
     NSString *password;
     
@@ -19,8 +22,20 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic ,strong)XMPPStream *xmppStream;
 
+@property (nonatomic ,strong)XMPPReconnect *xmppReconnect;
 
--(BOOL)connect;
+@property (nonatomic ,strong)XMPPStreamManagementMemoryStorage *storage;
+
+@property (nonatomic ,strong)XMPPStreamManagement *xmppStreamManagement;
+
+@property (nonatomic ,strong)XMPPRosterMemoryStorage *xmppRosterMemoryStorage;
+
+@property (nonatomic ,strong) XMPPRoster *xmppRoster;
+
+@property (nonatomic ,strong)XMPPMessageArchivingCoreDataStorage *xmppMessageArchivingCoreDataStorage;
+
+@property (nonatomic ,strong)XMPPMessageArchiving *xmppMessageArchiving;
+-(void)connect;
 -(void)disConnect;
 -(void)setupStream;
 -(void)goOnLine;

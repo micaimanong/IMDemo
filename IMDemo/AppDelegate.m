@@ -9,6 +9,11 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 
+#define JBXMPP_HOST @"imacdeimac-2.local"
+#define JBXMPP_PORT 5222
+#define JBXMPP_DOMAIN @"imacdeimac-2.local"
+
+
 @interface AppDelegate ()
 
 @end
@@ -17,119 +22,110 @@
 
 
 
-
-
+/**
+ *  初始化Xmpp流
+ */
 -(void)setupStream{
-    //初始化XMPPStream
-    xmppStream = [[XMPPStream alloc] init];
-    [xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
+    if (!_xmppStream) {
+        _xmppStream = [[XMPPStream alloc] init];
+        //初始化XMPPStream
+        [self.xmppStream setHostName:JBXMPP_HOST]; //设置xmpp服务器地址
+        [self.xmppStream setHostPort:JBXMPP_PORT]; //设置xmpp端口，默认5222
+        [self.xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
+        [self.xmppStream setKeepAliveInterval:30]; //心跳包时间
+        self.xmppStream.enableBackgroundingOnSocket=YES;    //允许xmpp在后台运行
+
+        //接入断线重连模块
+        _xmppReconnect = [[XMPPReconnect alloc] init];
+        [_xmppReconnect setAutoReconnect:YES];
+        [_xmppReconnect activate:self.xmppStream];
+        
+        //接入流管理模块，用于流恢复跟消息确认，在移动端很重要
+        _storage = [XMPPStreamManagementMemoryStorage new];
+        _xmppStreamManagement = [[XMPPStreamManagement alloc] initWithStorage:_storage];
+        _xmppStreamManagement.autoResume = YES;
+        [_xmppStreamManagement addDelegate:self delegateQueue:dispatch_get_main_queue()];
+        [_xmppStreamManagement activate:self.xmppStream];
+        
+        //接入好友模块，可以获取好友列表
+        _xmppRosterMemoryStorage = [[XMPPRosterMemoryStorage alloc] init];
+        _xmppRoster = [[XMPPRoster alloc] initWithRosterStorage:_xmppRosterMemoryStorage];
+        [_xmppRoster activate:self.xmppStream];
+        [_xmppRoster addDelegate:self delegateQueue:dispatch_get_main_queue()];
+        
+        //接入消息模块，将消息存储到本地
+        _xmppMessageArchivingCoreDataStorage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
+        _xmppMessageArchiving = [[XMPPMessageArchiving alloc] initWithMessageArchivingStorage:_xmppMessageArchivingCoreDataStorage dispatchQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 9)];
+        [_xmppMessageArchiving activate:self.xmppStream];
+        
+        
+    }
 }
--(void)goOnline{
-    //发送在线状态
-    XMPPPresence *presence = [XMPPPresence presence];
-    [[self xmppStream] sendElement:presence];
-}
--(void)goOffline{
-    //发送下线状态
-    XMPPPresence *presence = [XMPPPresence presenceWithType:@"unavailable"];
-    [[self xmppStream] sendElement:presence];
-}
--(BOOL)connect{
+/**
+ *  登录
+ */
+-(void)connect{
     [self setupStream];
-    //从本地取得用户名，密码和服务器地址
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *userId = @"abc";
-    NSString *pass = @"111111";
-    NSString *server = @"micaimanongdemacbook-pro.local";
-    if (![xmppStream isDisconnected]) {
-        return YES;
-    }
-    if (userId == nil || pass == nil) {
-        return NO;
-    }
-    //设置用户
-    [xmppStream setMyJID:[XMPPJID jidWithString:userId]];
-    //设置服务器
-//    [xmppStream setHostName:server]
-    ;
-    
-//    [xmppStream setHostPort:5222];
-    //密码
-    password = pass;
-    //连接服务器
+    NSString *userId = @"111";
+    XMPPJID *jid = [XMPPJID jidWithUser:userId domain:JBXMPP_DOMAIN resource:@"iOS"];
+    [self.xmppStream setMyJID:jid];
     NSError *error = nil;
-    if (![xmppStream connectWithTimeout:5 error:&error]) {
-        NSLog(@"cant connect %@", server);
-        return NO;
-    }
-    return YES;
+    [_xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:&error];
 }
+/**
+ *  断开连接
+ */
 -(void)disconnect{
     [self goOffline];
-    [xmppStream disconnect];
+    [self.xmppStream disconnect];
+}
+/**
+ *  发送在线状态
+ */
+-(void)goOnline{
+    //发送在线通知给服务器，服务器才会将离线消息推送过来
+    XMPPPresence *presence = [XMPPPresence presence]; // 默认"available"
+    [[self xmppStream] sendElement:presence];
+}
+/**
+ *  发送下线状态
+ */
+-(void)goOffline{
+    XMPPPresence *presence = [XMPPPresence presenceWithType:@"unavailable"];
+    [[self xmppStream] sendElement:presence];
+    [self.xmppStream disconnect];
 }
 
 
 
+#pragma mark - XmppDelegate 的实现
+//1.connect成功之后会依次调用XMPPStreamDelegate的方法，首先调用
+- (void)xmppStream:(XMPPStream *)sender socketDidConnect:(GCDAsyncSocket *)socket{
+    NSLog(@"我连上了");
+}
+//2.然后是    在该方法下面需要使用xmppStream 的authenticateWithPassword方法进行密码验证
 - (void)xmppStreamDidConnect:(XMPPStream *)sender{
-    isOpen = YES;
+    NSLog(@"验证密码的正确性");
+    password = @"111111";
     NSError *error = nil;
-    NSLog(@"ssajdkgashjdlk;l");
-    //验证密码
     [[self xmppStream] authenticateWithPassword:password error:&error];
 }
-//验证通过
+//3.验证通过  登录成功
 - (void)xmppStreamDidAuthenticate:(XMPPStream *)sender{
+    NSLog(@"上线");
     [self goOnline];
+    //启用流管理
+    [_xmppStreamManagement enableStreamManagementWithResumption:YES maxTimeout:0];
 }
-
-- (void)xmppStream:(XMPPStream *)sender socketDidConnect:(GCDAsyncSocket *)socket;
+//3.1 验证未通过  登陆失败
+- (void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(NSXMLElement *)error
 {
-    NSLog(@"我连上了");
-
+    NSLog(@"%s",__func__);
 }
-
-//收到消息
-- (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message{
-    // NSLog(@"message = %@", message);
-    NSString *msg = [[message elementForName:@"body"] stringValue];
-    NSString *from = [[message attributeForName:@"from"] stringValue];
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setObject:msg forKey:@"msg"];
-    [dict setObject:from forKey:@"sender"];
-    //消息委托(这个后面讲)
-//    [messageDelegate newMessageReceived:dict];
-}
-//收到好友状态
+//4.获取好友状态
 - (void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence{
-    // NSLog(@"presence = %@", presence);
-    //取得好友状态
-    NSString *presenceType = [presence type]; //online/offline
-    //当前用户
-    NSString *userId = [[sender myJID] user];
-    //在线用户
-    NSString *presenceFromUser = [[presence from] user];
-    if (![presenceFromUser isEqualToString:userId]) {
-        //在线状态
-//        if ([presenceType isEqualToString:@"available"]) {
-//            //用户列表委托(后面讲)
-//            [chatDelegate newBuddyOnline:[NSString stringWithFormat:@"%@@%@", presenceFromUser, @"nqc1338a"]];
-//        }else if ([presenceType isEqualToString:@"unavailable"]) {
-//            //用户列表委托(后面讲)
-//            [chatDelegate buddyWentOffline:[NSString stringWithFormat:@"%@@%@", presenceFromUser, @"nqc1338a"]];
-//        }
-    }
+
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
