@@ -17,6 +17,7 @@
 		42DA4CDE1D066D3D0080D6A1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA4CDC1D066D3D0080D6A1 /* LoginViewController.m */; };
 		42DA4CE31D066E030080D6A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA4CE01D066E030080D6A1 /* MainViewController.m */; };
 		42DA4CE41D066E030080D6A1 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA4CE21D066E030080D6A1 /* RegisterViewController.m */; };
+		88D624701D1D1DCF00B011FE /* IMBaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D6246F1D1D1DCF00B011FE /* IMBaseClient.m */; };
 		A247C63D85C987F6FF390980 /* libPods-IMDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC848C3DD9F39C1B36437C05 /* libPods-IMDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,8 @@
 		42DA4CE01D066E030080D6A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		42DA4CE11D066E030080D6A1 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		42DA4CE21D066E030080D6A1 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		88D6246E1D1D1DCF00B011FE /* IMBaseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBaseClient.h; sourceTree = "<group>"; };
+		88D6246F1D1D1DCF00B011FE /* IMBaseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMBaseClient.m; sourceTree = "<group>"; };
 		CC7EF7DE53D975A5DD37E361 /* Pods-IMDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMDemo/Pods-IMDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FC848C3DD9F39C1B36437C05 /* libPods-IMDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IMDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -128,6 +131,7 @@
 				42DA4CE01D066E030080D6A1 /* MainViewController.m */,
 				42DA4CE11D066E030080D6A1 /* RegisterViewController.h */,
 				42DA4CE21D066E030080D6A1 /* RegisterViewController.m */,
+				88D6246D1D1D1D7B00B011FE /* IMConfi */,
 				424A80191D02D767005A7978 /* Assets.xcassets */,
 				424A801B1D02D767005A7978 /* LaunchScreen.storyboard */,
 				424A801E1D02D767005A7978 /* Info.plist */,
@@ -169,6 +173,15 @@
 				374160B9105B325AD972153E /* Pods-IMDemo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		88D6246D1D1D1D7B00B011FE /* IMConfi */ = {
+			isa = PBXGroup;
+			children = (
+				88D6246E1D1D1DCF00B011FE /* IMBaseClient.h */,
+				88D6246F1D1D1DCF00B011FE /* IMBaseClient.m */,
+			);
+			path = IMConfi;
 			sourceTree = "<group>";
 		};
 		9AA75E8118013CE3F67CD16F /* Frameworks */ = {
@@ -370,6 +383,7 @@
 				424A80121D02D767005A7978 /* AppDelegate.m in Sources */,
 				424A800F1D02D767005A7978 /* main.m in Sources */,
 				42DA4CE31D066E030080D6A1 /* MainViewController.m in Sources */,
+				88D624701D1D1DCF00B011FE /* IMBaseClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
