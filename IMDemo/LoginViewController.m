@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
-#import "AppDelegate.h"
+#import "IMBaseClient.h"
 #import "MainViewController.h"
 @interface LoginViewController ()<UITextFieldDelegate>
 
@@ -67,11 +67,11 @@
 }
 -(void)buttonDown{
     
-    AppDelegate *del = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    [del connect];
-        
-//        MainViewController *mainView =[[MainViewController alloc] init];
-//        [self.navigationController pushViewController:mainView animated:YES];
+//    IMBaseClient *del = [IMBaseClient sharedManager];
+//    [del loginWithUserID:@"111" passWord:@"111111"];
+    
+        MainViewController *mainView =[[MainViewController alloc] init];
+        [self.navigationController pushViewController:mainView animated:YES];
   
     
 }

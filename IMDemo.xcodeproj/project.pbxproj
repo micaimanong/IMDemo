@@ -18,6 +18,10 @@
 		42DA4CE31D066E030080D6A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA4CE01D066E030080D6A1 /* MainViewController.m */; };
 		42DA4CE41D066E030080D6A1 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA4CE21D066E030080D6A1 /* RegisterViewController.m */; };
 		88D624701D1D1DCF00B011FE /* IMBaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D6246F1D1D1DCF00B011FE /* IMBaseClient.m */; };
+		88E8A86E1D236CF40025CDA8 /* ChatMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E8A86D1D236CF40025CDA8 /* ChatMainViewController.m */; };
+		88E8A8711D236D090025CDA8 /* FriendMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E8A8701D236D090025CDA8 /* FriendMainViewController.m */; };
+		88E8A8741D236D370025CDA8 /* DiscoverMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E8A8731D236D370025CDA8 /* DiscoverMainViewController.m */; };
+		88E8A8771D236D480025CDA8 /* MineMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E8A8761D236D480025CDA8 /* MineMainViewController.m */; };
 		A247C63D85C987F6FF390980 /* libPods-IMDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC848C3DD9F39C1B36437C05 /* libPods-IMDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +71,14 @@
 		42DA4CE21D066E030080D6A1 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		88D6246E1D1D1DCF00B011FE /* IMBaseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBaseClient.h; sourceTree = "<group>"; };
 		88D6246F1D1D1DCF00B011FE /* IMBaseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMBaseClient.m; sourceTree = "<group>"; };
+		88E8A86C1D236CF40025CDA8 /* ChatMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMainViewController.h; sourceTree = "<group>"; };
+		88E8A86D1D236CF40025CDA8 /* ChatMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMainViewController.m; sourceTree = "<group>"; };
+		88E8A86F1D236D090025CDA8 /* FriendMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendMainViewController.h; sourceTree = "<group>"; };
+		88E8A8701D236D090025CDA8 /* FriendMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendMainViewController.m; sourceTree = "<group>"; };
+		88E8A8721D236D370025CDA8 /* DiscoverMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverMainViewController.h; sourceTree = "<group>"; };
+		88E8A8731D236D370025CDA8 /* DiscoverMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverMainViewController.m; sourceTree = "<group>"; };
+		88E8A8751D236D480025CDA8 /* MineMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMainViewController.h; sourceTree = "<group>"; };
+		88E8A8761D236D480025CDA8 /* MineMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineMainViewController.m; sourceTree = "<group>"; };
 		CC7EF7DE53D975A5DD37E361 /* Pods-IMDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMDemo/Pods-IMDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FC848C3DD9F39C1B36437C05 /* libPods-IMDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IMDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -131,6 +143,7 @@
 				42DA4CE01D066E030080D6A1 /* MainViewController.m */,
 				42DA4CE11D066E030080D6A1 /* RegisterViewController.h */,
 				42DA4CE21D066E030080D6A1 /* RegisterViewController.m */,
+				88E8A86B1D236CC80025CDA8 /* MainView */,
 				88D6246D1D1D1D7B00B011FE /* IMConfi */,
 				424A80191D02D767005A7978 /* Assets.xcassets */,
 				424A801B1D02D767005A7978 /* LaunchScreen.storyboard */,
@@ -182,6 +195,21 @@
 				88D6246F1D1D1DCF00B011FE /* IMBaseClient.m */,
 			);
 			path = IMConfi;
+			sourceTree = "<group>";
+		};
+		88E8A86B1D236CC80025CDA8 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				88E8A86C1D236CF40025CDA8 /* ChatMainViewController.h */,
+				88E8A86D1D236CF40025CDA8 /* ChatMainViewController.m */,
+				88E8A86F1D236D090025CDA8 /* FriendMainViewController.h */,
+				88E8A8701D236D090025CDA8 /* FriendMainViewController.m */,
+				88E8A8721D236D370025CDA8 /* DiscoverMainViewController.h */,
+				88E8A8731D236D370025CDA8 /* DiscoverMainViewController.m */,
+				88E8A8751D236D480025CDA8 /* MineMainViewController.h */,
+				88E8A8761D236D480025CDA8 /* MineMainViewController.m */,
+			);
+			path = MainView;
 			sourceTree = "<group>";
 		};
 		9AA75E8118013CE3F67CD16F /* Frameworks */ = {
@@ -378,8 +406,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88E8A8771D236D480025CDA8 /* MineMainViewController.m in Sources */,
 				42DA4CE41D066E030080D6A1 /* RegisterViewController.m in Sources */,
+				88E8A8711D236D090025CDA8 /* FriendMainViewController.m in Sources */,
+				88E8A8741D236D370025CDA8 /* DiscoverMainViewController.m in Sources */,
 				42DA4CDE1D066D3D0080D6A1 /* LoginViewController.m in Sources */,
+				88E8A86E1D236CF40025CDA8 /* ChatMainViewController.m in Sources */,
 				424A80121D02D767005A7978 /* AppDelegate.m in Sources */,
 				424A800F1D02D767005A7978 /* main.m in Sources */,
 				42DA4CE31D066E030080D6A1 /* MainViewController.m in Sources */,
